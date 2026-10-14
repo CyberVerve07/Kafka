@@ -1,0 +1,45 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: kafka-demo
+
+  kafka:
+    # ── Kafka Broker ──────────────────────────────────────────
+    bootstrap-servers: localhost:9092
+
+    # ── Producer Config ───────────────────────────────────────
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all                          # strongest guarantee
+      retries: 3
+      properties:
+        enable.idempotence: true         # no duplicate sends
+        batch.size: 16384                # 16KB batch
+        linger.ms: 5                     # wait 5ms to batch more records
+        compression.type: gzip
+
+    # ── Consumer Config ───────────────────────────────────────
+    consumer:
+      group-id: kafka-demo-group
+      auto-offset-reset: earliest        # read from beginning if no offset
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      enable-auto-commit: false          # manual commit for reliability
+      properties:
+        spring.json.trusted.packages: "com.kafka.learn.model"
+
+    # ── Listener Config ───────────────────────────────────────
+    listener:
+      ack-mode: MANUAL_IMMEDIATE         # commit after each record
+      concurrency: 3                     # 3 listener threads
+
+# ── Kafka Topic Names (centralized) ───────────────────────────
+app:
+  kafka:
+    topics:
+      orders: orders-topic
+      notifications: notifications-topic
+      dead-letter: orders-topic.DLT
