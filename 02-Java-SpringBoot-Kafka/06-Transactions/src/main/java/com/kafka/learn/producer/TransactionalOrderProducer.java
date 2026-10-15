@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Use case: Payment processing where you CANNOT have duplicate messages.
  *
  * Config required in application.yml:
- *   spring.kafka.producer.transaction-id-prefix: tx-
+ * spring.kafka.producer.transaction-id-prefix: tx-
  *
  * What "exactly-once" means:
  * - Even if producer retries, the message appears EXACTLY ONCE in the topic
@@ -40,7 +40,7 @@ public class TransactionalOrderProducer {
      */
     @Transactional("kafkaTransactionManager")
     public void sendOrdersInTransaction(Order order1, Order order2) {
-        log.info("🔐 Starting Kafka transaction...");
+        log.info(" Starting Kafka transaction...");
 
         try {
             kafkaTemplate.send(ordersTopic, order1.getCustomerId(), order1);
@@ -53,10 +53,10 @@ public class TransactionalOrderProducer {
             kafkaTemplate.send(ordersTopic, order2.getCustomerId(), order2);
             log.info("  → Sent order2: {}", order2.getOrderId());
 
-            log.info("✅ Transaction committed — both orders published!");
+            log.info(" Transaction committed — both orders published!");
 
         } catch (Exception e) {
-            log.error("❌ Transaction rolled back — neither order published! Error: {}", e.getMessage());
+            log.error(" Transaction rolled back — neither order published! Error: {}", e.getMessage());
             throw e; // re-throw so @Transactional rolls back
         }
     }

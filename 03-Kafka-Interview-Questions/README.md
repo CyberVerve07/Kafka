@@ -21,8 +21,11 @@
 ├── 04-Scenario-Based/
 │   └── README.md          ← Real-world problem scenarios ★ Most Important
 │
-└── 05-System-Design/
-    └── README.md          ← Design Kafka-based systems from scratch
+├── 05-System-Design/
+│   └── README.md          ← Design Kafka-based systems from scratch
+│
+└── 06-Extreme-Hard-Scenarios/
+    └── README.md          ← 14 Hardcore production debugging & system scenarios 🔥
 ```
 
 ---
@@ -33,13 +36,14 @@
   ┌─────────────────────────────────────────────────────────────┐
   │               INTERVIEW QUESTION CATEGORIES                 │
   │                                                             │
-  │  🟢 Beginner (20 Q)     ████████░░░░░░░░░░  ~25%           │
-  │  🟡 Intermediate (25 Q) ██████████░░░░░░░░  ~30%           │
-  │  🔴 Advanced (20 Q)     ████████░░░░░░░░░░  ~25%           │
+  │  🟢 Beginner (20 Q)     ████████░░░░░░░░░░  ~20%           │
+  │  🟡 Intermediate (25 Q) ██████████░░░░░░░░  ~25%           │
+  │  🔴 Advanced (20 Q)     ████████░░░░░░░░░░  ~20%           │
   │  🎭 Scenario-Based (15) ██████░░░░░░░░░░░░  ~15%           │
   │  🏗️ System Design (5)   ██░░░░░░░░░░░░░░░░  ~5%            │
+  │  🌋 Extreme Hard (14)   █████░░░░░░░░░░░░░  ~15%           │
   │                                                             │
-  │  Total: ~85 Questions                                       │
+  │  Total: ~99 Questions                                       │
   └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -112,6 +116,7 @@
 | 03 | [Advanced Level](./03-Advanced-Level/README.md) | Deep dive, edge cases |
 | 04 | [Scenario Based ⭐](./04-Scenario-Based/README.md) | Real-world problem solving |
 | 05 | [System Design](./05-System-Design/README.md) | Architecture design questions |
+| 06 | [Extreme Hard Scenarios 🔥](./06-Extreme-Hard-Scenarios/README.md) | 14 Production post-mortems & deep scenarios |
 
 ---
 

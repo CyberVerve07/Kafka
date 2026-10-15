@@ -38,6 +38,7 @@ Kafka/
     ├── 03-Advanced-Level/
     ├── 04-Scenario-Based/
     ├── 05-System-Design/
+    ├── 06-Extreme-Hard-Scenarios/
     └── README.md
 ```
 
