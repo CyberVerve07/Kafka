@@ -22,12 +22,7 @@ Key properties:
 ---
 
 ## Q3. What is a Partition?
-**A:** A partition is an ordered, immutable sequence of records within a topic. It is the fundamental unit of parallelism in Kafka.
-
-- Ordering is guaranteed **within** a partition
-- Ordering is **NOT** guaranteed across partitions
-- More partitions = more parallelism
-
+A partition is an ordered log where Kafka stores messages. We use multiple partitions mainly for parallel processing and scalability. Replication provides fault tolerance. If a topic has 3 partitions and the consumer group has 5 consumers, at most 3 consumers can actively consume those partitions, and the remaining 2 will stay idle. One consumer can also be assigned multiple partitions.
 ---
 
 ## Q4. What is an Offset?
